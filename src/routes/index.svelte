@@ -1,14 +1,14 @@
 <script lang="ts">
     import "../app.css";
-    
+
     import Titulo from "$lib/components/compartilhados/Titulo.svelte";
     import Categoria from "$lib/components/paginas/index/Categoria.svelte";
-    import Tag from "$lib/components/compartilhados/Tag.svelte";
 
     import categorias from "$lib/json/categorias.json";
 
     import { minhaLista } from "$lib/stores/minhaLista";
     import { beforeNavigate } from "$app/navigation";
+    import TagLink from "$lib/components/compartilhados/TagLink.svelte";
 
     $: listaVazia = $minhaLista.length === 0;
 
@@ -47,13 +47,9 @@
     </ul>
 
     <div class="buscar-receitas">
-        <a href="/receitas">
-            <Tag
-                ativa={true}
-                tamanho="lg"
-                desabilitada={listaVazia}
-            >Buscar Receitas!</Tag>
-        </a>
+        <TagLink href="/receitas" desabilitada={listaVazia}>
+            Buscar receitas!
+        </TagLink>
     </div>
 </main>
 
