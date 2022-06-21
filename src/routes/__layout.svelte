@@ -1,4 +1,6 @@
 <script lang="ts">
+    import "../app.css";
+
     import Cabecalho from "$lib/components/paginas/layout/Cabecalho.svelte";
     import MinhaLista from "$lib/components/paginas/layout/MinhaLista.svelte";
     import Rodape from "$lib/components/paginas/layout/Rodape.svelte";
