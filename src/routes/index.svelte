@@ -9,19 +9,20 @@
     import categorias from "$lib/json/categorias.json";
 
     import { minhaLista } from "$lib/stores/minhaLista";
+    import { beforeNavigate } from "$app/navigation";
+
+    $: listaVazia = $minhaLista.length === 0;
+
+    beforeNavigate((navigation) => {
+        if (listaVazia && navigation.to?.pathname === '/receitas') {
+            navigation.cancel();
+        }
+    })
 </script>
 
 <svelte:head>
     <title>Alura Cook</title>
 </svelte:head>
-
-{#if $minhaLista.length}
-    <div class="minha-lista-container">
-        <MinhaLista />
-
-        <div class="divisoria" />
-    </div>
-{/if}
 
 <main>
     <Titulo tag="h1">Ingredientes</Titulo>
@@ -48,7 +49,11 @@
 
     <div class="buscar-receitas">
         <a href="/receitas">
-            <Tag ativa={true} tamanho="lg">Buscar Receitas!</Tag>
+            <Tag
+                ativa={true}
+                tamanho="lg"
+                desabilitada={listaVazia}
+            >Buscar Receitas!</Tag>
         </a>
     </div>
 </main>

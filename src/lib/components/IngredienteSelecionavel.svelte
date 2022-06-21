@@ -5,15 +5,13 @@
 
     export let ingrediente: string;
 
-    let selecionado = false;
+    $: selecionado = $minhaLista.includes(ingrediente);
 
     function aoClicar() {
         if (!selecionado) {
-            $minhaLista = [...$minhaLista, ingrediente];
+            minhaLista.adicionarIngrediente(ingrediente);
         } else {
-            $minhaLista = $minhaLista.filter(
-                (item) => item !== ingrediente
-            );
+            minhaLista.removerIngrediente(ingrediente);
         }
     }
 </script>
