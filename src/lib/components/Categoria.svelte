@@ -19,8 +19,6 @@
             <li>
                 <IngredienteSelecionavel
                     {ingrediente}
-                    on:adicionarIngrediente
-                    on:removerIngrediente
                 />
             </li>
         {/each}

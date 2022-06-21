@@ -1,24 +1,19 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+    import { minhaLista } from "$lib/stores/minhaLista";
 
     import Tag from "./Tag.svelte";
-
-    const dispatch = createEventDispatcher<{
-        adicionarIngrediente: string,
-        removerIngrediente: string
-    }>();
 
     export let ingrediente: string;
 
     let selecionado = false;
 
     function aoClicar() {
-        selecionado = !selecionado;
-
-        if (selecionado) {
-            dispatch('adicionarIngrediente', ingrediente);
+        if (!selecionado) {
+            $minhaLista = [...$minhaLista, ingrediente];
         } else {
-            dispatch('removerIngrediente', ingrediente);
+            $minhaLista = $minhaLista.filter(
+                (item) => item !== ingrediente
+            );
         }
     }
 </script>
