@@ -1,10 +1,9 @@
 <script lang="ts">
     import "../app.css";
-
-    import MinhaLista from "$lib/components/MinhaLista.svelte";
-    import Titulo from "$lib/components/Titulo.svelte";
-    import Categoria from "$lib/components/Categoria.svelte";
-    import Tag from "$lib/components/Tag.svelte";
+    
+    import Titulo from "$lib/components/compartilhados/Titulo.svelte";
+    import Categoria from "$lib/components/paginas/index/Categoria.svelte";
+    import Tag from "$lib/components/compartilhados/Tag.svelte";
 
     import categorias from "$lib/json/categorias.json";
 
